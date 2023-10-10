@@ -1,11 +1,18 @@
 
+import PropTypes from 'prop-types';
+PokemonCard.propTypes = {
+    pokemon: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        imgSrc: PropTypes.string,
+    }).isRequired,
+}
 
 function PokemonCard(props) {
     console.log(props)
 
     let pokemon = props.pokemon;
 
-    if (pokemon.imgSrc === "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png") {
+    if (pokemon.imgSrc !== null) {
         return (
             <figure>
                 <img src={pokemon.imgSrc}></img>
