@@ -9,15 +9,13 @@ PokemonCard.propTypes = {
 }
 
 function PokemonCard(props) {
-    console.log(props)
-    let pokemon = props.pokemon;
 
+    let pokemon = props.pokemon;
     if (pokemon.imgSrc !== null) {
         return (
             <figure>
                 <img src={pokemon.imgSrc}></img>
                 <figcaption>{pokemon.name}</figcaption>
-
             </figure>
         );
     } else {
