@@ -1,34 +1,48 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from "react";
 
 
 
-function NavBar({ pokemonIndex, pokemonList, handleClick, handleClick2 }) {
+function NavBar({ pokemonList, pokemonIndex, setPokemonIndex }) {
 
-    if (pokemonIndex > 0 && pokemonIndex < pokemonList.length - 1) {
-        return (
-            <div>
-                <button onClick={handleClick}>Précédent</button>
-                <button onClick={handleClick2}>Suivant</button>
-            </div >
-        )
-    } else if (pokemonIndex === pokemonList.length - 1) {
-        return (
-            <div>
-                <button onClick={handleClick}>Précédent</button>
-            </div >
-        )
-    } else if (pokemonIndex === 0) {
-        return (
-            <div>
-                <button onClick={handleClick2}>Suivant</button>
-            </div >
-        )
+    const handleClick = (pokemonIndex) => {
+        setPokemonIndex(pokemonIndex)
     }
+
+    return (<div>
+        {pokemonList.map((pokemon, index) => (
+            <button key={index} onClick={() => { handleClick(index) }}>{pokemon.name}</button>
+        ))
+        }
+    </div >)
 }
 
-NavBar.propTypes = {
 
-};
+{/* NavBar.propTypes = {
+
+        }; */}
 
 export default NavBar;
+
+//</div>  if (pokemonIndex > 0 && pokemonIndex < pokemonList.length - 1) {
+//     return (
+//         <div>
+//             <button onClick={handleClick}>Précédent</button>
+//             <button onClick={handleClick2}>Suivant</button>
+//         </div >
+//     )
+// } else if (pokemonIndex === pokemonList.length - 1) {
+//     return (
+//         <div>
+//             <button onClick={handleClick}>Précédent</button>
+//         </div >
+//     )
+// } else if (pokemonIndex === 0) {
+//     return (
+//         <div>
+//             <button onClick={handleClick2}>Suivant</button>
+//         </div >
+//     )
+// }
+// )}}
