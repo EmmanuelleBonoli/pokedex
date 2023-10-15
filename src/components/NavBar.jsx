@@ -6,9 +6,18 @@ import { useState } from "react";
 
 function NavBar({ pokemonList, pokemonIndex, setPokemonIndex }) {
 
-    const handleClick = (pokemonIndex) => {
-        setPokemonIndex(pokemonIndex)
+    const handleClick = (index) => {
+        setPokemonIndex(index)
+        const selectedPokemon = pokemonList[index];
+        if (selectedPokemon.name === 'pikachu') {
+            alert('pika pikachu !!!');
+        }
     }
+
+
+
+
+
 
     return (<div>
         {pokemonList.map((pokemon, index) => (
